@@ -1,0 +1,61 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package modelos;
+
+import java.util.HashSet;
+import java.util.Set;
+
+/**
+ *
+ * @author pcgamergab
+ */
+   public class CatupiryDecorator extends AdicionalDecorator {
+    public CatupiryDecorator(IProduto produto) {
+        super(produto);
+    }
+
+    @Override
+    public String getNome() {
+        return produto.getNome() + " + Catupiry";
+    }
+
+    @Override
+    public double getPreco() {
+        return produto.getPreco() + (5.0 * getQuantidade()); // Ajuste conforme necessário
+    }
+
+    @Override
+    public String getDescricao() {
+        return produto.getDescricao() + " com Catupiry";
+    }
+
+    @Override
+    public void aumentarQuantidadeProduto(int quantidade) {
+    // Aumenta a quantidade no produto base
+    produto.setQuantidade(produto.getQuantidade() + quantidade);
+}
+  
+
+    @Override
+    public Set<String> getAdicionais() {
+        // Retorna um conjunto contendo o nome do adicional do QueijoCheddarDecorator
+        Set<String> adicionais = new HashSet<>();
+        adicionais.add(" + Catupiry");
+        return adicionais;
+    }
+
+    @Override
+    public boolean temMesmosAdicionais(IProduto outroProduto) {
+        // Verifica se o outro produto é uma instância de QueijoCheddarDecorator
+        // e se possui os mesmos adicionais
+        if (outroProduto instanceof CatupiryDecorator) {
+            CatupiryDecorator outroComCatupiry = (CatupiryDecorator) outroProduto;
+            return this.getAdicionais().equals(outroComCatupiry.getAdicionais());
+        }
+        return false;
+    }
+}
+
+
