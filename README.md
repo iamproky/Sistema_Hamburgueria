@@ -10,7 +10,7 @@ Tela inicial Gerente ou Cárdapio
 Tela Cárdapio com 3 opões de variedades
 Tela Cadastro/dados Cliente
 Tela Pedido Confirmado
-Tela Relátorio do pedido 
+Tela Relátorio do pedido(ITEXTPDF)
 
 
 
